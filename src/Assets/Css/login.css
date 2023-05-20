@@ -1,0 +1,72 @@
+.loginPage {
+	width: 100vw;
+	height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	background: linear-gradient(92.36deg, #04619F 0%, #1C1C1C 100%);
+    padding: 50px 0;
+
+}
+
+
+.login-container {
+    width: 50%;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.fa-spinner {
+    font-size: larger;
+    color: black;
+}
+
+@media (max-width: 740px) {
+    .login-container {
+        width: 90%;
+    }
+}
+
+.label_login {
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+#username,
+#email,
+#password {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #172337;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/*h3 {
+    margin-top: 20px;
+}*/
+
+.Signup-link{
+	margin-top: 20px;
+	font-weight: 600;
+}

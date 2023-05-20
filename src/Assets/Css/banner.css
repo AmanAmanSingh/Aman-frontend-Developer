@@ -18,7 +18,7 @@
 
 .banner-section-text {
     position: absolute;
-    top: 30%;
+    top: 20%;
     right: 0;
     left: 50%;
     color:  white;
@@ -128,8 +128,26 @@
   color: #fff;
   text-decoration: none;
   font-size: larger;
+   font-weight: 600;
 }
 
 .singin_signup_container ul li a:hover {
   text-decoration: underline;
+}
+
+
+.logout{
+ cursor: pointer;
+  font-weight: 600;
+   font-size: 1.5em
+}
+.logout:hover{
+ cursor: pointer;
+text-decoration: underline;
+}
+
+@media (max-width: 860px) {
+  .logout {
+    display: none;
+  }
 }

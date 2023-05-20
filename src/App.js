@@ -9,6 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {SearchContext} from './Context/seacrhContext';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {useState} from 'react';
+import Login from './component/SignIn/signin';
+import Signup from './component/SignUp/signup';
+import Protected from './component/ProtectedRoutes/protected';
 
 
 function App() {
@@ -17,18 +20,21 @@ function App() {
   const [type, setType] = useState("");
   const [original_launch_unix, setOriginal_launch_unix] = useState("");
   const [capsuleValue, setCapsuleValue] = useState("");
-
+  const [singleCardData, setSingleCardData] = useState([]);
 
   return (
     <>
       <SearchContext.Provider
         value={{
           status, setStatus, type, setType, original_launch_unix, setOriginal_launch_unix,
-          capsuleValue, setCapsuleValue
+          capsuleValue, setCapsuleValue, singleCardData, setSingleCardData
         }}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<>  <Header /> <Banner /> <Search /> <Cards /></>} />
+            <Route path="/" element={<>  <Header /> <Banner /> <Search /> <Protected> <Cards /></Protected></>} />
+            <Route path='/signin' element={<Login />} />
+            <Route path='signup' element={<Signup />} />
+            <Route path='*' element={<center> PAGE NOT FOUND</center>} />
           </Routes>
         </BrowserRouter>
       </SearchContext.Provider>

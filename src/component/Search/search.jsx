@@ -2,19 +2,28 @@ import {useContext, useState} from "react";
 import "../../Assets/Css/search.css"
 import Cards from "../Cards/cards";
 import {SearchContext} from "../../Context/seacrhContext";
+import {Navigate, useNavigate} from "react-router-dom";
 
 const Search = () => {
 
 	const setfilterBy = useContext(SearchContext);
-	console.log(setfilterBy, "connnn")
-
+	//console.log(setfilterBy, "connnn")
+	const userdetail = localStorage.getItem("name");
+	const navigate = useNavigate()
 
 	const handleSearchByChange = (e) => {
 		const searchBy = e.target.value;
+		if(!userdetail) {
+			alert("first you need to SignIn to access cards");
+			navigate("/signin")
+		}
+		setfilterBy.setCapsuleValue("");
+
 		if(searchBy == "status") {
 			setfilterBy.setStatus(searchBy)
 			setfilterBy.setOriginal_launch_unix("")
 			setfilterBy.setType("")
+
 
 		} else if(searchBy == "type") {
 			setfilterBy.setType(searchBy)
@@ -44,7 +53,7 @@ const Search = () => {
 
 				<article>
 					<input type="text" id=""
-						placeholder="write your capsule value..."
+						placeholder="Find By Capsule Value..."
 						value={setfilterBy.capsuleValue}
 						onChange={(e) => {setfilterBy.setCapsuleValue(e.target.value)}}
 					/>
