@@ -12,7 +12,7 @@ function useFetch(url) {
 		fetch(url, {
 			method: "GET",
 			headers: {
-				authrzation: Token,
+				authorization: Token,
 				'Content-type': 'Application/json',
 			},
 		}).then(res => {

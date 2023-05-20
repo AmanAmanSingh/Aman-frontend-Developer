@@ -4,6 +4,7 @@ import SingleCard from "./Singlecard";
 import Search from "../Search/search";
 import useFetch from "../../CoustomHook/fetch";
 import {SearchContext} from "../../Context/seacrhContext";
+import Loader from "../Loader/loader";
 
 
 const Cards = () => {
@@ -13,17 +14,16 @@ const Cards = () => {
 	const [status, setStatus] = useState(" ");
 	const searchBy = useContext(SearchContext);
 
-	//console.log(searchBy.status, "jnbhvgfhdghjk")
+
 	let url = `${process.env.REACT_APP_BACKEND_URL}/capsules/pagination/?page=${activePage}&pagesize=4`;
 
 	if(searchBy.status === "status") {
 		url += `&status=${searchBy.capsuleValue}`;
 	} else if(searchBy.type === "type") {
 		url += `&type=${searchBy.capsuleValue}`;
-	} else if(searchBy.original_launch_unix === "original_launch") {
+	} else if(searchBy.original_launch_unix === "original_launch_unix") {
 		url += `&original_launch_unix=${searchBy.capsuleValue}`;
 	}
-
 	const cardData = useFetch(url);
 
 
@@ -35,15 +35,29 @@ const Cards = () => {
 		setActivePage(pageNumber);
 	};
 
+	const handleSingleCard = (item) => {
+		searchBy.setSingleCardData([item]);
+	}
+
 	return (
 		<>
 
+
 			<section className="section">
+				{!cardData?.data?.length &&
+					<Loader />
+				}
 				<article className="cards-article">
 					{cardData?.data?.map((item, i) => {
 						return (
 							<>
-								<div className="card-container" key={i}>
+								<div className="card-container"
+									key={i}
+									onClick={() => {
+										handleSingleCard(item);
+										handlePopup()
+									}}
+								>
 									<div className="card">
 										<img src="" alt="" className="card-image" />
 										<div className="card-content">
@@ -61,48 +75,49 @@ const Cards = () => {
 					})}
 
 
+					<article className="pagination-article">
+						<div className="pagination">
+							<ul>
+								<li>
+									<a
+										className={activePage === 1 ? 'prev disabled' : 'prev'}
+										onClick={() => handlePageClick(activePage - 1)}
+									>
+										Prev
+									</a>
+								</li>
+								<li>
+									<a
+										className={activePage === 1 ? 'active' : ''}
+										onClick={() => handlePageClick(1)}
+									>
+										1
+									</a>
+								</li>
+								<li>
+									<a
+										className={activePage === 2 ? 'active' : ''}
+										onClick={() => handlePageClick(2)}
+									>
+										2
+									</a>
+								</li>
+								<li>
+									<a
+										className={'next'}
+										onClick={() => handlePageClick(activePage + 1)}
+									>
+										Next
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</article>
 
 				</article>
 
-				<article className="pagination-article">
-					<div className="pagination">
-						<ul>
-							<li>
-								<a
-									className={activePage === 1 ? 'prev disabled' : 'prev'}
-									onClick={() => handlePageClick(activePage - 1)}
-								>
-									Prev
-								</a>
-							</li>
-							<li>
-								<a
-									className={activePage === 1 ? 'active' : ''}
-									onClick={() => handlePageClick(1)}
-								>
-									1
-								</a>
-							</li>
-							<li>
-								<a
-									className={activePage === 2 ? 'active' : ''}
-									onClick={() => handlePageClick(2)}
-								>
-									2
-								</a>
-							</li>
-							<li>
-								<a
-									className={'next'}
-									onClick={() => handlePageClick(activePage + 1)}
-								>
-									Next
-								</a>
-							</li>
-						</ul>
-					</div>
 
-				</article>
 
 			</section>
 
