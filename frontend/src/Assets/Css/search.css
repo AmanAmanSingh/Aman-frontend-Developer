@@ -1,0 +1,41 @@
+.search-capsules-container {
+	width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(92.36deg, #1C1C1C  0%, #04619F 100%);
+  height: 15vh;
+}
+
+.search-capsules-container article {
+  margin: 0 10px;
+}
+
+#search-capsules{
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="text"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+}
+
+input[type="text"]::placeholder{
+	text-align: left;
+}
+
+
+@media (max-width:675px) {
+	.search-capsules-container {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+}

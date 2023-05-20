@@ -1,0 +1,135 @@
+.banner-container {
+    position: relative;
+    z-index: 0;
+}
+
+.banner-section {
+    height: 90vh;
+}
+.banner-section2 {
+    height: 100vh;
+}
+
+.banner-container article img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-section-text {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    left: 50%;
+    color:  white;
+    text-align: center;
+}
+
+.banner-section-text2 {
+    position: absolute;
+    top: 75%;
+    right: 50%;
+    left: 0%;
+	bottom: 0%;
+    color:  white;
+    /*text-align: center;*/
+}
+
+.banner-section-text h1 {
+    font-size: 4vmax;
+    font-weight: 500;
+    /*font-family: serif;*/
+	font-family: sans-serif;
+
+}
+.banner-section-text2 h1 {
+    font-size: 4vmax;
+    font-weight: 500;
+    /*font-family: serif;*/
+	font-family: sans-serif;
+
+}
+
+.banner-section-text h3 {
+    font-size: 2.5em;
+}
+
+.banner-section-text2 h3 {
+    font-size: 2em;
+}
+@media (max-width:675px) {
+	.banner-section-text {
+    position: absolute;
+    top: 0%;
+    right: 55%;
+    left: 35%;
+	bottom: 20%;
+    color:  white;
+    text-align: center;
+
+}
+.banner-section-text2 {
+      position: absolute;
+    top: 60%;
+    right: 20%;
+    left: 0%;
+	bottom: 0%;
+    color:  white;
+    text-align: center;
+}
+
+}
+
+
+@media (max-width:856px) {
+	.banner-section-text {
+    position: absolute;
+    top: 0%;
+    right: 55%;
+    left: 35%;
+	bottom: 20%;
+    color:  white;
+    text-align: center;
+
+}
+}
+
+.banner-section-text {
+  opacity: 0; 
+  animation: slideIn 1s ease-out forwards; 
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100px); 
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+.singin_signup_container {
+  
+}
+
+.singin_signup_container ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.singin_signup_container ul li {
+  margin-right: 10px;
+}
+
+.singin_signup_container ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: larger;
+}
+
+.singin_signup_container ul li a:hover {
+  text-decoration: underline;
+}
