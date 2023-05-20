@@ -11,10 +11,10 @@ router.post("/capsules", CapsuleController.SpacexData)
 
 
 //Retriving All Filled Data
-router.get("/capsules", CapsuleController.GetAllData)
+router.get("/capsules", Authentication, CapsuleController.GetAllData)
 
 //GET DATA BY FILTER AND PAGINATE
-router.get("/capsules/pagination", CapsuleController.PaginatedData)
+router.get("/capsules/pagination", Authentication, CapsuleController.PaginatedData)
 
 
 
